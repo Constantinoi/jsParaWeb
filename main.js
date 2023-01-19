@@ -1,5 +1,20 @@
-function playPom(){
-    document.querySelector('#som_tecla_pom').play();
+function playSom(idSom){
+    document.querySelector(idSom).play();
 }
 
-document.querySelector('.tecla_pom').onclick = playPom;
+const teclas = document.querySelectorAll('.tecla');
+
+let contador = 0;
+
+while(contador < teclas.length){
+
+   const tecla =  teclas[contador];
+   const instrumento = tecla.classList[1];
+   const som = `#som_${instrumento}`; 
+
+   tecla.onclick = function() {
+        playSom(som);
+   }
+   
+    contador++;
+}
